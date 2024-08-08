@@ -1,11 +1,24 @@
     let parrafoResultado = document.getElementById("parrafoResultado");
     let parrafo = document.getElementById("parrafo");
     let h2Viejo = document.getElementById("h2Bloque2");
-    let imgBloque2 = document.getElementById("imgBloque2");
+    let muñeco = document.getElementById("muñeco");
     let i = 0;
     let contenedorBloque2 =  document.getElementById("contenedor__bloque2")
     let botonCopiar = document.getElementById("boton__copiar");
     let input_texto = document.getElementById("caja__texto");
+
+
+    const mediaBp = matchMedia('(min-width: 950px)');
+    const changeSize = mq => {
+        mq.matches
+            ? document.getElementById("muñeco").removeAttribute("hidden") 
+            : document.getElementById("muñeco").setAttribute("hidden", "")        
+    }
+
+    mediaBp.addListener(changeSize);
+    changeSize(mediaBp);
+
+
 
 function Encriptar(){
     let input_texto = document.getElementById("caja__texto").value; 
@@ -24,13 +37,13 @@ function Encriptar(){
             alert("Debe ingresar texto en mínuscula")
         }
     } else {
-        alert("Debes ingresar al menos 1 carácter")
+        alert("Debes ingresar al menos 1 carácter");
         parrafo.innerHTML = "Ingresa el texto que desees encriptar o desencriptar";
         parrafoResultado.innerHTML = "";
         h2Viejo.innerHTML = "Ningún mensaje fue encontrado";
-        imgBloque2.removeAttribute("hidden");
+        muñeco.removeAttribute("hidden");
         contenedorBloque2.setAttribute("class","contenedor__bloque2");
-        botonCopiar.setAttribute("", "hidden");
+        botonCopiar.setAttribute("hidden", "");
     }
 }
 
@@ -47,13 +60,13 @@ function Desencriptar(){
         AsignarTextoElemento(textoDescifrado);
 
     } else {
-        alert("Debes ingresar texto para encriptar")
+        alert("Debes ingresar al menos 1 carácter")
         parrafo.innerHTML = "Ingresa el texto que desees encriptar o desencriptar";
         parrafoResultado.innerHTML = "";
         h2Viejo.innerHTML = "Ningún mensaje fue encontrado";
-        imgBloque2.removeAttribute("hidden");
+        muñeco.removeAttribute("hidden");
         contenedorBloque2.setAttribute("class","contenedor__bloque2");
-        botonCopiar.setAttribute("", "hidden");
+        botonCopiar.setAttribute("hidden", "");
     }
 }
 
@@ -61,7 +74,7 @@ function AsignarTextoElemento(texto) {
     contenedorBloque2.setAttribute("class","contenedor__bloque2__encriptar");
     parrafoResultado.innerHTML = texto;
     h2Viejo.innerHTML = "";
-    imgBloque2.setAttribute("hidden", "");
+    muñeco.setAttribute("hidden", "");
     parrafo.innerHTML = "";
     botonCopiar.removeAttribute("hidden")
 
@@ -71,3 +84,4 @@ function copiarAlPortapapeles (){
     let textoCopiado = document.getElementById("parrafoResultado").innerHTML;
     navigator.clipboard.writeText(textoCopiado);
 }
+

@@ -8,38 +8,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="contenedor">
-        <section class="contenedor__bloque1">
-            <article class="contenedor__bloque1__header">
-                <img class="logo__alura" src="Logo.png" alt="logo__alura">
-                <h1  class="titulo">Encriptador de Texto</h1>
-            </article>
-            <div class="contenedor__encriptador">
-                <div class="contenedor__caja__texto">
-                    <textarea name="texto" id="caja__texto" class="caja__texto" placeholder="Ingresa el texto aqui"></textarea>
-                </div>  
-                <div class="contenedor__encriptador__pie">
-                    <div class="contenedor__caja__terminos">
-                        <img src="exclamacion.png" alt="icono_exclamación">
-                        <p>Solo letras minúsculas y sin acentos</p>
-                    </div>
-                    <div class="contenedor__botones">
-                        <button id="Encriptar" class="boton__encriptar" type="button" onclick="Encriptar()">Encriptar</button>
-                        <button id="Desencriptar" class="boton__desencriptar" type="button" onclick="Desencriptar()">Desencriptar</button>
+    <main class="main">
+        <div class="contenedor">
+            <section class="contenedor__bloque1">
+                <article class="contenedor__bloque1__header">
+                    <img class="logo__alura" src="/sources/Logo.png" alt="logo__alura">
+                    <h1  class="titulo">Encriptador de Texto</h1>
+                </article>
+                <div class="contenedor__encriptador">
+                    <div class="contenedor__caja__texto">
+                        <textarea name="texto" id="caja__texto" class="caja__texto" placeholder="Ingresa el texto aqui"></textarea>
+                    </div>  
+                    <div class="contenedor__encriptador__pie">
+                        <div class="contenedor__caja__terminos">
+                            <img src="exclamacion.png" alt="icono_exclamación">
+                            <p>Solo letras minúsculas y sin acentos</p>
+                        </div>
+                        <div class="contenedor__botones">
+                            <button id="Encriptar" class="boton__encriptar" type="button" onclick="Encriptar()">Encriptar</button>
+                            <button id="Desencriptar" class="boton__desencriptar" type="button" onclick="Desencriptar()">Desencriptar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <p class="footer__creditos">Encriptador de texto desarrollado por Facundo Costamagna, basado en "Challenge: Encriptador de Texto" de Alura</p>
-        </section>
-        <section id="contenedor__bloque2" class="contenedor__bloque2">
-            <p id="parrafoResultado" class="parrafoResultado"></p>
-            <img id="imgBloque2" src="Muñeco.png">
-            <div class="contenedor__bloque2__texto">
-                <h2 id="h2Bloque2">Ningún mensaje fue encontrado</h2>
-                <p id="parrafo">Ingresa el texto que desees encriptar o desencriptar</p>
-                <button id="boton__copiar" class="boton__copiar" type="button" onclick="copiarAlPortapapeles()" hidden>Copiar</button>
-            </div>
-        </section>
+            </section>
+            <section id="contenedor__bloque2" class="contenedor__bloque2">
+                <p id="parrafoResultado" class="parrafoResultado"></p>
+                <div class="contenedor__bloque2__texto">
+                    <img class="muñeco" id="muñeco" src="/sources/Muñeco.png">
+                    <h2 id="h2Bloque2">Ningún mensaje fue encontrado</h2>
+                    <p id="parrafo">Ingresa el texto que desees encriptar o desencriptar</p>
+                </div>
+                <button id="boton__copiar" hidden class="boton__copiar" type="button" onclick="copiarAlPortapapeles()">Copiar</button>
+            </section>
+        </div>
+        <p class="footer__creditos">Encriptador de texto desarrollado por Facundo Costamagna, basado en "Challenge: Encriptador de Texto" de Alura</p>
     </main>
 </body>
 <script src="app.js"></script>
