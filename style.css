@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 
+/*Estilos globales*/
+
 *{
     padding: 0;
     margin: 0;
@@ -15,44 +17,18 @@ body{
     display: flex;
     width: 100%;
     height: 94vh;
-    gap: 3%;
+    gap: 30px;
 }
+
+/*Estilización del Bloque1*/
 
 .contenedor__bloque1{
     width: 72%;
-    height: 95vh;
     display: flex;
     flex-direction: column;
 }
 
-.contenedor__bloque2{
-    width: 28%;
-    height: 90vh;
-    background-color: #FFFFFF;
-    border-radius: 32px;
-    margin: 2%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
-}
-
-.contenedor__bloque2__encriptar {
-    padding: 2%;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    width: 28%;
-    background-color: #FFFFFF;
-    border-radius: 32px;
-    margin: 2%;
-    text-align: center;
-    align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, .25) ;
-    position: relative;
-}
+/*Header del Bloque1*/
 
 .contenedor__bloque1__header{
     display: flex;
@@ -72,6 +48,8 @@ body{
     color: #E9ECF8;
     font-size: 24px;
 }
+
+/*Main del Bloque1*/
 
 .contenedor__encriptador{
     display: flex;
@@ -149,8 +127,20 @@ body{
     cursor: pointer;
 }
 
-.contenedor__bloque2 img {
-    width: 82%;
+/*Estilización Bloque2*/
+
+.contenedor__bloque2{
+    width: 28%;
+    height: 90vh;
+    background-color: #FFFFFF;
+    border-radius: 32px;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .25);
 }
 
 .contenedor__bloque2__texto{
@@ -158,7 +148,27 @@ body{
     flex-direction: column;
     gap: 1vh;
     width: auto;
-    
+}
+
+.muñeco {
+    width: 82%;
+}
+
+/*Estilización del Bloque2 al encriptar/desencriptar texto*/
+
+.contenedor__bloque2__encriptado {
+    padding: 2%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    background-color: #FFFFFF;
+    border-radius: 32px;
+    margin: 2%;
+    text-align: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .25) ;
+    position: relative;
 }
 
 .parrafoResultado{
@@ -180,6 +190,8 @@ body{
     position: absolute;
 }
 
+/*creditos en footer*/
+
 .footer__creditos{
     margin-top: 15px;
     padding-left: 20px;
@@ -192,6 +204,8 @@ body{
     border-top-right-radius: 15px;
     border: 1px solid #808080;
 }
+
+/*Trabajo de responsividad (Tablet)*/
 
 @media (max-width: 950px){
     .contenedor{
@@ -224,15 +238,18 @@ body{
         flex-direction: column;
         position: relative;
     }
-    .contenedor__bloque2__encriptar{
+    .contenedor__bloque2__encriptado{
         height: 40vh;
-        width: auto;
-        margin: 5% 10%;
+        width: 80%;
+        margin: 0% 10%;
     }
     .boton__copiar{
         margin-bottom: 3%;
     }
 }
+
+
+/*Trabajo de responsividad (celular)*/
 
 @media (max-width: 455px) {
     .contenedor__botones{
