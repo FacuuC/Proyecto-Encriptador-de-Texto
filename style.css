@@ -27,7 +27,6 @@
 
 body{
     background-color: var(--color-primario);
-    overflow: hidden;
 }
 
 .contenedor{
@@ -275,8 +274,8 @@ body{
 }
 
 /*Responsividad(pc)*/
-@media (min-width: 950px){
-    .body{
+@media (min-width: 951px){
+    body{
         overflow: hidden;
     }
 }
@@ -284,9 +283,6 @@ body{
 /*Trabajo de responsividad (Tablet)*/
 
 @media (max-width: 950px){
-    .body{
-        overflow: scroll;
-    }
     .contenedor{
         flex-direction: column;
         height: auto;
@@ -331,9 +327,6 @@ body{
 /*Trabajo de responsividad (celular)*/
 
 @media (max-width: 455px) {
-    .body{
-        overflow: scroll;
-    }
     .contenedor__botones{
         display: flex;
         flex-direction: column;
