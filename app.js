@@ -2,11 +2,8 @@
     let parrafo = document.getElementById("parrafo");
     let h2Viejo = document.getElementById("h2Bloque2");
     let muñeco = document.getElementById("muñeco");
-    let i = 0;
-    let acento = "´";
-    let contenedorBloque2 =  document.getElementById("contenedor__bloque2")
+    let contenedorBloque2 =  document.getElementById("contenedor__bloque2");
     let botonCopiar = document.getElementById("boton__copiar");
-    let input_texto = document.getElementById("caja__texto");
 
 
     const mediaBp = matchMedia('(min-width: 950px)');
@@ -34,12 +31,11 @@ function Encriptar(){
                 .replace(new RegExp("u", "g"),"ufat")
                 
                 AsignarTextoElemento(textoCifrado);
-            }
-            else{
-                alert("Debe ingresar texto sin acentos");
+            } else{
+                alertaCaracter("Debe ingresar carácteres sin acentuación", "amarillo");
             }
         } else {
-            alert("Debe ingresar texto en mínuscula")
+            alertaCaracter("Debe ingresar carácteres en minuscula", "amarillo");
         }
     } else {
         normalizarPanelEncriptado();
@@ -48,16 +44,25 @@ function Encriptar(){
 
 function Desencriptar(){
     let input_texto = document.getElementById("caja__texto").value;
+    let input_texto_lowerCase = input_texto.toLowerCase();
     if(input_texto.length != 0){
-        textoDescifrado = input_texto
-        .replace(new RegExp("enter", "g"),"e")
-        .replace(new RegExp("imes", "g"),"i")
-        .replace(new RegExp("ai", "g"),"a")
-        .replace(new RegExp("ober", "g"),"o")
-        .replace(new RegExp("ufat", "g"),"u")
-        
-        AsignarTextoElemento(textoDescifrado);
-
+            if(input_texto === input_texto_lowerCase){
+                eliminarAcentos(input_texto);
+                if (input_texto === input_textoSinAcentos){
+                    textoDescifrado = input_texto
+                    .replace(new RegExp("enter", "g"),"e")
+                    .replace(new RegExp("imes", "g"),"i")
+                    .replace(new RegExp("ai", "g"),"a")
+                    .replace(new RegExp("ober", "g"),"o")
+                    .replace(new RegExp("ufat", "g"),"u")
+                    
+                    AsignarTextoElemento(textoDescifrado);
+                } else{
+                    alertaCaracter("Debe ingresar carácteres sin acentuación", "amarillo");
+                }
+            } else {
+                alertaCaracter("Debe ingresar carácteres en minuscula", "amarillo");
+            }
     } else {
         normalizarPanelEncriptado()
     }
@@ -73,7 +78,7 @@ function AsignarTextoElemento(texto) {
 }
 
 function normalizarPanelEncriptado(){
-    alert("Debes ingresar al menos 1 carácter");
+        alertaCaracter("Debe ingresar aunque sea 1 carácter", "amarillo");
         parrafo.innerHTML = "Ingresa el texto que desees encriptar o desencriptar";
         parrafoResultado.innerHTML = "";
         h2Viejo.innerHTML = "Ningún mensaje fue encontrado";
@@ -87,7 +92,7 @@ function normalizarPanelEncriptado(){
 function copiarAlPortapapeles (){
     let textoCopiado = document.getElementById("parrafoResultado").innerHTML;
     navigator.clipboard.writeText(textoCopiado);
-    alert("Texto copiado al portapapeles");
+    alertaCaracter("Texto copiado con éxito!", "verde");
 }
 
 function eliminarAcentos(texto){
@@ -98,4 +103,37 @@ function eliminarAcentos(texto){
                                 .replace(/\u00F3/g,"o")
                                 .replace(/\u00FA/g,"u")
     return texto;
+}
+
+function alertaCaracter(mensajeAlerta, color){
+    let alerta = document.getElementById("alerta");
+    if (color === "amarillo"){
+        alerta.removeAttribute("class");
+        alerta.setAttribute("class", "alerta mostrar alertaAmarilla");
+        setTimeout(()=>{
+            alerta.removeAttribute("class");
+            alerta.setAttribute("class","alerta esconder alertaAmarilla")
+        },5000);
+        
+        let mensaje = document.getElementById("alerta_texto");
+        mensaje.innerHTML = mensajeAlerta;
+
+        let img = document.getElementById("alerta_icono");
+        img.removeAttribute("src");
+        img.setAttribute("src","exclamacion.png");
+    } else {
+        alerta.removeAttribute("class");
+        alerta.setAttribute("class", "alerta mostrar alertaVerde");
+        setTimeout(()=>{
+            alerta.removeAttribute("class");
+            alerta.setAttribute("class","alerta esconder alertaVerde")
+        },5000);
+        
+        let mensaje = document.getElementById("alerta_texto");
+        mensaje.innerHTML = mensajeAlerta;
+
+        let img = document.getElementById("alerta_icono");
+        img.removeAttribute("src");
+        img.setAttribute("src","check.png");
+    }
 }
